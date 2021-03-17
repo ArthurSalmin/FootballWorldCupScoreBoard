@@ -23,7 +23,7 @@ namespace FootballWorldCupScoreBoard.Facts.Tests
         }
 
         [Fact]
-        public void CreateGameOnStartGame()
+        public void ReturnsGameOnStartGame()
         {
             var team1 = new TeamVo
             {
@@ -37,9 +37,12 @@ namespace FootballWorldCupScoreBoard.Facts.Tests
                 TeamName = "Italy"
             };
 
-            _tested.StartGame(team1, team2);
+            var game = _tested.StartGame(team1, team2);
 
-            _gameStorage.GetGames().Should().NotBeEmpty();
+            game.HomeTeamId.Should().Be(team1.TeamId);
+            game.AwayTeamId.Should().Be(team2.TeamId);
+            game.HomeTeamScore.Should().Be(0);
+            game.AwayTeamScore.Should().Be(0);
         }
 
         [Fact]
