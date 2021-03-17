@@ -55,6 +55,16 @@ namespace FootballWorldCupScoreBoard
                 Console.WriteLine(summary);
             }
 
+            newScoreBoard.FinishGame(game1.GameId);
+            newScoreBoard.FinishGame(game3.GameId);
+            
+            summaryResult = newScoreBoard.GetSummaryByAddedDate();
+            Console.WriteLine("Summary results 2");
+            foreach (var summary in summaryResult)
+            {
+                Console.WriteLine(summary);
+            }
+            
             Console.ReadLine();
         }
     }
