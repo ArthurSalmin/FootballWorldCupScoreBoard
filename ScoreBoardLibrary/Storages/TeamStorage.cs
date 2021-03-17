@@ -5,27 +5,39 @@ namespace FootballWorldCupScoreBoard.Storages
 {
     public class TeamStorage : ITeamStorage
     {
-        private List<TeamVo> teams = new List<TeamVo>();
+        private readonly List<TeamVo> _teams = new List<TeamVo>();
+        private int _scopeIdentity;
+
+        public TeamStorage()
+        {
+            _scopeIdentity = 0;
+        }
         public TeamVo CreateTeam(TeamVo team)
         {
-            var teamId = teams.Count;
+            var teamId = this._scopeIdentity++;
             team.TeamId = teamId;
-            this.teams.Add(team);
+            _teams.Add(team);
             return team;
         }
 
         public bool DeleteTeam(int teamId)
         {
-            var team = this.teams.FirstOrDefault(_ => _.TeamId == teamId);
-            if (team == null) return false;
+            var team = _teams.FirstOrDefault(_ => _.TeamId == teamId);
+            if (team == null)
+            {
+                return false;
+            }
 
-            return this.teams.Remove(team);
+            return _teams.Remove(team);
         }
 
         public TeamVo UpdateTeam(TeamVo team)
         {
-            var existedTeam = this.teams.FirstOrDefault(_ => _.TeamId == team.TeamId);
-            if (existedTeam == null) return null;
+            var existedTeam = _teams.FirstOrDefault(_ => _.TeamId == team.TeamId);
+            if (existedTeam == null)
+            {
+                return null;
+            }
 
             existedTeam.TeamName = team.TeamName;
 
@@ -34,12 +46,12 @@ namespace FootballWorldCupScoreBoard.Storages
 
         public TeamVo GetTeamById(int teamId)
         {
-            return this.teams.FirstOrDefault(_ => _.TeamId == teamId);
+            return _teams.FirstOrDefault(_ => _.TeamId == teamId);
         }
 
         public List<TeamVo> GetTeams()
         {
-            return this.teams;
+            return _teams;
         }
     }
 }

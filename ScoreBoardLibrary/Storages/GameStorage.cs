@@ -6,45 +6,52 @@ namespace FootballWorldCupScoreBoard.Storages
 {
     public class GameStorage : IGameStorage
     {
-        private List<GameVo> games = new List<GameVo>();
+        private readonly List<GameVo> _games = new List<GameVo>();
+
         public GameVo CreateGame(GameVo game)
         {
             var teamId = Guid.NewGuid();
             game.GameId = teamId;
-            this.games.Add(game);
+            _games.Add(game);
             return game;
         }
 
         public bool DeleteGame(Guid gameId)
         {
-            var team = this.games.FirstOrDefault(_ => _.GameId == gameId);
-            if (team == null) return false;
+            var team = _games.FirstOrDefault(_ => _.GameId == gameId);
+            if (team == null)
+            {
+                return false;
+            }
 
-            return this.games.Remove(team);
+            return _games.Remove(team);
         }
 
         public GameVo UpdateGame(GameVo game)
         {
-            var existedGame = this.games.FirstOrDefault(_ => _.GameId == game.GameId);
-            if (existedGame == null) return null;
+            var existedGame = _games.FirstOrDefault(_ => _.GameId == game.GameId);
+            if (existedGame == null)
+            {
+                return null;
+            }
 
             existedGame.HomeTeamId = game.HomeTeamId;
             existedGame.AwayTeamId = game.AwayTeamId;
             existedGame.HomeTeamScore = game.HomeTeamScore;
             existedGame.AwayTeamScore = game.AwayTeamScore;
             existedGame.Started = game.Started;
-            
+
             return existedGame;
         }
 
         public GameVo GetGameById(Guid gameId)
         {
-            return this.games.FirstOrDefault(_ => _.GameId == gameId);
+            return _games.FirstOrDefault(_ => _.GameId == gameId);
         }
 
         public List<GameVo> GetGames()
         {
-            return this.games;
+            return _games;
         }
     }
 }

@@ -50,19 +50,25 @@ namespace FootballWorldCupScoreBoard
         public void UpdateScore(Guid gameId, int homeTeamScore, int awayTeamScore)
         {
             var game = _gameStorage.GetGames().FirstOrDefault(_ => _.GameId == gameId);
-            if (game == null) throw new Exception($"Game with id {gameId} not found");
+            if (game == null)
+            {
+                throw new Exception($"Game with id {gameId} not found");
+            }
             
             game.HomeTeamScore = homeTeamScore;
             game.AwayTeamScore = awayTeamScore;
 
-            this._gameStorage.UpdateGame(game);
+            _gameStorage.UpdateGame(game);
         }
 
         public void FinishGame(Guid gameId)
         {
             var deleted = _gameStorage.DeleteGame(gameId);
-            
-            if (!deleted) throw new Exception($"Game with id {gameId} not found");
+
+            if (!deleted)
+            {
+                throw new Exception($"Game with id {gameId} not found");
+            }
         }
     }
 }
