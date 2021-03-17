@@ -187,7 +187,7 @@ namespace FootballWorldCupScoreBoard.Facts.Tests
             _gameStorage.CreateGame(game2);
             _gameStorage.CreateGame(game3);
 
-            var gamesSummary = _tested.GetSummaryByAddedDate();
+            var gamesSummary = _tested.GetSummaryByAddedDate().ToList();
 
             gamesSummary.Count.Should().Be(3);
         }

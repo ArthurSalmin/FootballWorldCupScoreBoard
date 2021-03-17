@@ -29,7 +29,7 @@ namespace FootballWorldCupScoreBoard
             return _gameStorage.CreateGame(game);
         }
 
-        public List<string> GetSummaryByAddedDate()
+        public IEnumerable<string> GetSummaryByAddedDate()
         {
             var games = _gameStorage.GetGames();
             var teams = _teamStorage.GetTeams();
@@ -42,8 +42,7 @@ namespace FootballWorldCupScoreBoard
                     AwayTeamName = teams.FirstOrDefault(t => t.TeamId == _.AwayTeamId)?.TeamName,
                     HomeTeamScore = _.HomeTeamScore,
                     AwayTeamScore = _.AwayTeamScore
-                }.ToString())
-                .ToList();
+                }.ToString());
             return resultSummary;
         }
 
@@ -52,7 +51,7 @@ namespace FootballWorldCupScoreBoard
             var game = _gameStorage.GetGames().FirstOrDefault(_ => _.GameId == gameId);
             if (game == null)
             {
-                throw new Exception($"Game with id {gameId} not found");
+                throw new KeyNotFoundException($"Game with id {gameId} not found");
             }
             
             game.HomeTeamScore = homeTeamScore;
@@ -67,7 +66,7 @@ namespace FootballWorldCupScoreBoard
 
             if (!deleted)
             {
-                throw new Exception($"Game with id {gameId} not found");
+                throw new KeyNotFoundException($"Game with id {gameId} not found");
             }
         }
     }
