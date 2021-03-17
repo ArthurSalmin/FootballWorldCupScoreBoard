@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FootballWorldCupScoreBoard
+namespace FootballWorldCupScoreBoard.ValueObjects
 {
     public class GameVo
     {

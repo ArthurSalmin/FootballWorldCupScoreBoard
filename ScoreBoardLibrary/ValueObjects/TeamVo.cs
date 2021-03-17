@@ -1,4 +1,4 @@
-﻿namespace FootballWorldCupScoreBoard
+﻿namespace FootballWorldCupScoreBoard.ValueObjects
 {
     public class TeamVo
     {

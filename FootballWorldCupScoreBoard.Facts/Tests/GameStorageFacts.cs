@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using FluentAssertions;
 using FootballWorldCupScoreBoard.Facts.TestUtilities;
 using FootballWorldCupScoreBoard.Storages;
+using FootballWorldCupScoreBoard.ValueObjects;
+
 using Xunit;
 
 namespace FootballWorldCupScoreBoard.Facts.Tests

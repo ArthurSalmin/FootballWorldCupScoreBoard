@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using FootballWorldCupScoreBoard.ValueObjects;
 
-namespace FootballWorldCupScoreBoard
+namespace FootballWorldCupScoreBoard.Interfaces
 {
     public interface ITeamStorage
     {

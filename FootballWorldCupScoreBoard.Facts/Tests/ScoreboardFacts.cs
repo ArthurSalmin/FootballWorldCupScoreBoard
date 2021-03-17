@@ -3,6 +3,9 @@ using System.Linq;
 using FluentAssertions;
 using FootballWorldCupScoreBoard.Facts.TestUtilities;
 using FootballWorldCupScoreBoard.Storages;
+using FootballWorldCupScoreBoard.ValueObjects;
+using FootballWorldCupScoreBoard.Managers;
+
 using Xunit;
 
 namespace FootballWorldCupScoreBoard.Facts.Tests

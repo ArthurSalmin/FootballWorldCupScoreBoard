@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using FootballWorldCupScoreBoard.Storages;
+using FootballWorldCupScoreBoard.Interfaces;
+using FootballWorldCupScoreBoard.ValueObjects;
 
-namespace FootballWorldCupScoreBoard
+namespace FootballWorldCupScoreBoard.Managers
 {
     public class ScoreBoard : IScoreboard
     {
