@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreBoardLibrary", "ScoreBoardLibrary\ScoreBoardLibrary.csproj", "{DC8CC9C2-FB9D-4A63-B30D-19EAD345CB0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballWorldCupScoreBoard", "FootballWorldCupScoreBoard\FootballWorldCupScoreBoard.csproj", "{6BB89ADA-CBDD-4505-B36B-4C8F1855D549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballWorldCupScoreBoard.Facts", "FootballWorldCupScoreBoard.Facts\FootballWorldCupScoreBoard.Facts.csproj", "{2F7820BA-00CE-4C2D-A7A3-E0B15C500E81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC8CC9C2-FB9D-4A63-B30D-19EAD345CB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8CC9C2-FB9D-4A63-B30D-19EAD345CB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8CC9C2-FB9D-4A63-B30D-19EAD345CB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8CC9C2-FB9D-4A63-B30D-19EAD345CB0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB89ADA-CBDD-4505-B36B-4C8F1855D549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB89ADA-CBDD-4505-B36B-4C8F1855D549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB89ADA-CBDD-4505-B36B-4C8F1855D549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB89ADA-CBDD-4505-B36B-4C8F1855D549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7820BA-00CE-4C2D-A7A3-E0B15C500E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7820BA-00CE-4C2D-A7A3-E0B15C500E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7820BA-00CE-4C2D-A7A3-E0B15C500E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7820BA-00CE-4C2D-A7A3-E0B15C500E81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
