@@ -38,16 +38,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="GameSummary.cs" />
-        <Compile Include="GameVo.cs" />
         <Compile Include="Interfaces\IGameStorage.cs" />
         <Compile Include="Interfaces\IScoreboard.cs" />
         <Compile Include="Interfaces\ITeamStorage.cs" />
+        <Compile Include="Managers\ScoreBoard.cs" />
+        <Compile Include="Models\GameSummary.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="ScoreBoard.cs" />
         <Compile Include="Storages\GameStorage.cs" />
         <Compile Include="Storages\TeamStorage.cs" />
-        <Compile Include="TeamVo.cs" />
+        <Compile Include="ValueObjects\GameVo.cs" />
+        <Compile Include="ValueObjects\TeamVo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

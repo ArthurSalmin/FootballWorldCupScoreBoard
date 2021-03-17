@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace FootballWorldCupScoreBoard.Storages
@@ -20,8 +19,7 @@ namespace FootballWorldCupScoreBoard.Storages
             var team = this.teams.FirstOrDefault(_ => _.TeamId == teamId);
             if (team == null) return false;
 
-            this.teams.Remove(team);
-            return true;
+            return this.teams.Remove(team);
         }
 
         public TeamVo UpdateTeam(TeamVo team)

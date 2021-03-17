@@ -20,8 +20,7 @@ namespace FootballWorldCupScoreBoard.Storages
             var team = this.games.FirstOrDefault(_ => _.GameId == gameId);
             if (team == null) return false;
 
-            this.games.Remove(team);
-            return true;
+            return this.games.Remove(team);
         }
 
         public GameVo UpdateGame(GameVo game)
