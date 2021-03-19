@@ -71,5 +71,22 @@ namespace FootballWorldCupScoreBoard.Managers
                 throw new KeyNotFoundException($"Game with id {gameId} not found");
             }
         }
+
+        public int GetTeamScore(string name)
+        {
+            var team = this._teamStorage.GetTeamByName(name);
+            if (team == null)
+            {
+                throw new KeyNotFoundException($"Team with name {name} not found");
+            }
+            
+            var game = _gameStorage.GetGames().FirstOrDefault(x => x.HomeTeamId == team.TeamId);
+            if (game == null)
+            {
+                throw new KeyNotFoundException($"Game with team name {name} not found");
+            }
+            
+            return game.HomeTeamScore;
+        }
     }
 }

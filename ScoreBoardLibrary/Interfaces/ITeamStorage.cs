@@ -12,5 +12,7 @@ namespace FootballWorldCupScoreBoard.Interfaces
         TeamVo GetTeamById(int teamId);
 
         List<TeamVo> GetTeams();
+
+        TeamVo GetTeamByName(string teamName);
     }
 }

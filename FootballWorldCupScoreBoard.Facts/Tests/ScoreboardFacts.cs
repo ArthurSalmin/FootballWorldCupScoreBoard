@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using FootballWorldCupScoreBoard.Facts.TestUtilities;
@@ -193,6 +194,84 @@ namespace FootballWorldCupScoreBoard.Facts.Tests
             var gamesSummary = _tested.GetSummaryByAddedDate().ToList();
 
             gamesSummary.Count.Should().Be(3);
+        }
+
+        [Fact]
+        public void ReturnsTeamScoreOnGetTeamScore()
+        {
+            var team1 = new TeamVo
+            {
+                TeamId = 0,
+                TeamName = "Spain"
+            };
+
+            var team2 = new TeamVo
+            {
+                TeamId = 1,
+                TeamName = "Italy"
+            };
+
+            var game1 = new GameVo
+            {
+                GameId = 1.ToGuid(),
+                HomeTeamId = team1.TeamId,
+                AwayTeamId = team2.TeamId,
+                AwayTeamScore = 0,
+                HomeTeamScore = 3,
+                Started = _now
+            };
+
+            _teamStorage.CreateTeam(team1);
+            _teamStorage.CreateTeam(team2);
+            
+            var game = _gameStorage.CreateGame(game1);
+
+            var teamScore = _tested.GetTeamScore(team1.TeamName);
+
+            teamScore.Should().Be(game1.HomeTeamScore);
+        }
+        
+        [Fact]
+        public void ReturnsExceptionOnGetTeamScore_WhenGameNotFound()
+        {
+            var team1 = new TeamVo
+            {
+                TeamId = 0,
+                TeamName = "Spain"
+            };
+
+            var team2 = new TeamVo
+            {
+                TeamId = 1,
+                TeamName = "Italy"
+            };
+
+            _teamStorage.CreateTeam(team1);
+            _teamStorage.CreateTeam(team2);
+
+            Func<int> getTeamSCore = () =>  _tested.GetTeamScore("Spain");
+
+            getTeamSCore.Should().Throw<KeyNotFoundException>();
+        }
+        
+        [Fact]
+        public void ReturnsExceptionOnGetTeamScore_WhenTeamIsNotFound()
+        {
+            var game1 = new GameVo
+            {
+                GameId = 1.ToGuid(),
+                HomeTeamId = 0,
+                AwayTeamId = 1,
+                AwayTeamScore = 0,
+                HomeTeamScore = 3,
+                Started = _now
+            };
+            
+            _gameStorage.CreateGame(game1);
+
+            Func<int> getTeamSCore = () =>  _tested.GetTeamScore("Spain");
+
+            getTeamSCore.Should().Throw<KeyNotFoundException>();
         }
     }
 }

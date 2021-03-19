@@ -55,5 +55,11 @@ namespace FootballWorldCupScoreBoard.Storages
         {
             return _teams;
         }
+
+        public TeamVo GetTeamByName(string teamName)
+        {
+            var team = _teams.FirstOrDefault(_ => _.TeamName == teamName);
+            return _teams.FirstOrDefault(_ => _.TeamName == teamName);
+        }
     }
 }

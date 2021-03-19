@@ -10,5 +10,7 @@ namespace FootballWorldCupScoreBoard.Interfaces
         IEnumerable<string> GetSummaryByAddedDate();
         void UpdateScore(Guid gameId, int homeTeamScore, int awayTeamScore);
         void FinishGame(Guid gameId);
+
+        int GetTeamScore(string name);
     }
 }
